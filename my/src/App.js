@@ -4,30 +4,44 @@ import './App.css';
 import React, {useState} from "react";
 import "./styles.css"
 
-var welcome = 'Tanay';
+const emojiDictionary = {
+  "😻": "love",
+  "😇": "angelic",
+  xc: "lovestruck",
+  "🥰": "blushing",
+  "😈": "devilish",
+  "😊": "happy",
+  "😸": "very happy",
+  "😄": "laughing",
+  "😙": "whistling",
+  "🙂": "smiling",
+}
 
 function App() {
-  const [likeCounter, setLikeCounter] = useState(0)
-  var  [userInput, setUserInput] = useState("")
+  var [meaning, setMeaning] = useState("")
 
-      function likeButtonClicked() {
+  function inputChangeHandler(event){
 
-        var newLikeCounter = likeCounter + 1;
-        setLikeCounter(newLikeCounter);
-        console.log(likeCounter);
+    var userInput = event.target.value;
 
-      }
+    meaning = emojiDictionary[userInput];
 
-      function inputChangeHandler(event) {
-        setUserInput(event.target.value);
+    if (meaning === undefined){
+      meaning = "we don't have this in our database";
+    }
+    
+    setMeaning(meaning);
 
-      }
+    console.log(meaning);
+    console.log(userInput);
+
+  }
   
   return (
     <div className="App">
-        <h1>Welcome <span style = {{color:'blue'}}> {welcome} </span></h1> {likeCounter}
-        <button onClick={likeButtonClicked}>Click Me</button>
-        <input onChange={inputChangeHandler}></input> {userInput}
+        <input onChange={inputChangeHandler}></input>
+
+        <div> Welcome {meaning} </div>
     </div>
   );
 }
