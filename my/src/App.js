@@ -7,7 +7,6 @@ import "./styles.css"
 const emojiDictionary = {
   "😻": "love",
   "😇": "angelic",
-  xc: "lovestruck",
   "🥰": "blushing",
   "😈": "devilish",
   "😊": "happy",
@@ -18,7 +17,7 @@ const emojiDictionary = {
 }
 
 function App() {
-  var [meaning, setMeaning] = useState("")
+  var [meaning, setMeaning] = useState(" ")
 
   function inputChangeHandler(event){
 
@@ -37,11 +36,24 @@ function App() {
 
   }
   
+
   return (
     <div className="App">
+        <h1> Emoji Tracker </h1>
         <input onChange={inputChangeHandler}></input>
 
-        <div> Welcome {meaning} </div>
+        <div> {meaning} </div>
+        <div> Our Database is : 
+                😻
+                😇
+                🥰
+                😈
+                😊
+                😸
+                😄
+                😙
+                🙂
+       </div>
     </div>
   );
 }
